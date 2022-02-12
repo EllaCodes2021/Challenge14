@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Just Another Tech Blog</title>
+  
+</head>
+
+<body>
+  <header class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Just Another Tech Blog</a>
+        <a href="#" data-target="sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="hide-on-med-and-down">
+            {{#if loggedIn}}
+          <li><a href="/dashboard">Postboard</a></li>
+          <li><button id="logout" class="btn-flat">Logout</button></li>
+            {{else}}
+          <li><a href="/login">Login</a></li>
+            {{/if}}
+        </ul>
+      </div>
+    </nav>
+        {{#if loggedIn}}
+    <ul class=" sidenav" id="mobile-demo">
+        <li><a href="/dashboard">Postboard</a></li>
+        <li><button id="logout" class="btn-flat">Logout</button></li>
+          {{else}}
+        <li><a href="/login">Login</a></li>
+          {{/if}}
+    </ul>
+</header>
+    <main>
+      {{{ body }}}
+    </main>
+    <footer>
+      Thanks for visiting!
+    </footer>
+
+  
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+
+    <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>  document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems, options);
+  });</script>
+            
+
+</body>
+
+</html>
